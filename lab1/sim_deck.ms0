@@ -1,0 +1,6 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 32-BIT'
+.TITLE ' '
+ static_current   static_power     dynamic_current  dynamic_power     
+ energy_current   energy           temper           alter#            
+ -2.500e-06       -6.250e-06          failed           failed         
+    failed           failed          25.0000        1                 
