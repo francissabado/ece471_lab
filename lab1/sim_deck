@@ -42,27 +42,27 @@ Vgate g 0 0
 * This measure statements will help you AUTOMATICALLY determine the tphl (high-to-low propagation speed)
 * and tplh 
 
-.measure tran tphl TRIG v(in) val='sup/2' rise=1
-+                   TARG v(out) val='sup/2' fall=1
-
-.measure tran tplh TRIG v(in) val='sup/2' fall=1
-+                   TARG v(out) val='sup/2' rise=1
-
-* static power
-.measure static_current avg i(Vvdd) from=0 to=.5ns
-.measure static_power param='static_current * sup'
-
-* triggers for 10% and 90% values
-.measure tran start_dynamic trig at 0n targ v(out) val = 'sup * .1' rise=1
-.measure tran stop_dynamic trig at 0n targ v(out) val = 'sup * .9' rise=1
-
-* dynamic power
-.measure dynamic_current avg i(Vvdd) from=start_dynamic to=stop_dynamic
-.measure dynamic_power param='dynamic_current * sup'
-
-* energy
-.measure energy_current integral i(Vvdd) from=start_dynamic to=stop_dynamic
-.measure energy param='energy_current * sup'
+***.measure tran tphl TRIG v(in) val='sup/2' rise=1
+***+                   TARG v(out) val='sup/2' fall=1
+***
+***.measure tran tplh TRIG v(in) val='sup/2' fall=1
+***+                   TARG v(out) val='sup/2' rise=1
+***
+**** static power
+***.measure static_current avg i(Vvdd) from=0 to=.5ns
+***.measure static_power param='static_current * sup'
+***
+**** triggers for 10% and 90% values
+***.measure tran start_dynamic trig at 0n targ v(out) val = 'sup * .1' rise=1
+***.measure tran stop_dynamic trig at 0n targ v(out) val = 'sup * .9' rise=1
+***
+**** dynamic power
+***.measure dynamic_current avg i(Vvdd) from=start_dynamic to=stop_dynamic
+***.measure dynamic_power param='dynamic_current * sup'
+***
+**** energy
+***.measure energy_current integral i(Vvdd) from=start_dynamic to=stop_dynamic
+***.measure energy param='energy_current * sup'
 
 * This isn't exact.  please modify
 *.measure tran iavg I(vdd) start=1ns finish=10ns
