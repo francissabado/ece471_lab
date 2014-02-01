@@ -1,0 +1,15 @@
+ScopeSigMgr:loadpffile /nfs/stak/students/b/branaugj/ece471_lab/lab3/sim_deck.tr0 1 openonly
+# PF:1
+Graph:DSel 0
+Graph:DSel
+pf:read PF:1 v(input!)
+# WF:1:1
+Graph addsignal WF:1:1 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal0
+pf:read PF:1 v(output!)
+# WF:1:2
+Graph addsignal WF:1:2 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal1
+Graph:DSel
+Graph:Select Graph0
+Graph axisconfig {AxisY(0,0) AxisX(0) AxisY(1,0)} -range {{0.8895 1.929 } {6.6n 13.2n } {0.32 1.64 }}

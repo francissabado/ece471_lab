@@ -1,0 +1,24 @@
+Part 6 simulations:
+
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 32-BIT'
+.TITLE ' '
+ tphl             tplh             static_current   static_power      
+ start_dynamic    stop_dynamic     dynamic_current  dynamic_power     
+ energy_current   energy           temper           alter#            
+  1.730e-11        2.449e-11       -3.577e-11       -8.941e-11        
+  6.300e-09        6.342e-09       -1.239e-04       -3.096e-04        
+ -5.181e-15       -1.295e-14         25.0000        1                 
+
+
+Part 7 simulations:
+
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 32-BIT'
+.TITLE ' '
+ tphl             tplh             static_current   static_power      
+ start_dynamic    stop_dynamic     dynamic_current  dynamic_power     
+ energy_current   energy           temper           alter#            
+  1.730e-11        2.449e-11       -3.577e-11       -8.941e-11        
+  6.300e-09        6.342e-09       -1.239e-04       -3.096e-04        
+ -5.181e-15       -1.295e-14         25.0000        1                 
+
+

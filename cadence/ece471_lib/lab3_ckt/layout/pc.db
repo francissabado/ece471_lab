@@ -1,0 +1,26 @@
+#
+ece471_lib m3_m2 layout
+I6
+#
+ece471_lib m2_m1 layout
+I5
+#
+ece471_lib m5_m4 layout
+I8
+I4
+#
+ece471_lib m4_m3 layout
+I7
+I3
+#
+ece471_lib inverter layout
+I1
+I2
+#ISCELL
+ece471_lib metal1 symbolic
+I11
+I10
+I9
+#ISCELL
+ece471_lib metal3 symbolic
+I12

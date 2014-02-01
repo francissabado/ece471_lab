@@ -1,0 +1,20 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 32-BIT"
+* "format" "HSP"
+* "rundate" "16:29:08 01/31/2014 "
+* "netlist" "sim_deck "
+* "runtitle" ""
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ net03 =   2.5000        
++ net05 =   2.5000        
++ net07 =   2.5000        
++ net4 =   2.5000        
++ vdd! =   2.5000        
++ vin =   0.            
++ vout =  35.8011n       
+***   END: Saved Operating Point ***                     

@@ -1,0 +1,10 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 32-BIT'
+.TITLE ' '
+ tphl             tplh             start_dynamic    stop_dynamic      
+ input_rise       output_rise      delay            dynamic_current   
+ dynamic_power    energy_current   energy           temper            
+ alter#            
+  7.689e-09       -1.715e-09        4.100e-09        5.118e-09        
+  1.020e-09        4.100e-09        3.080e-09       -7.814e-05        
+ -1.954e-04       -7.957e-14       -1.989e-13         25.0000         
+ 1                 
