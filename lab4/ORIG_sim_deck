@@ -6,21 +6,14 @@ Vvdd VDD! 0 'sup'
 Vgnd GND! 0 0
 
 * Value of the power supply. 2.5V(0.25um); 1.8V(0.18um); 1.2V(0.13um); 1.0V(90nm, 65nm); 0.9V(32nm)
-***.param sup=2.5
-***.param sup=1.2
-***.param sup=1
-***.param sup=0.9
-.param sup=0.7
+.param sup=2.5
 
 * Include the netlist into the simulation
 * For example, 'inverter_sch.spi' (inverter schematic)
 * For example, 'inverter_lay.spi' (inverter layout)
 * You MUST get rid of the .end statement
-***.include './netlists/nor2_250nm.sp'
-***.include './netlists/nor2_130nm.sp'
-***.include './netlists/nor2_65nm.sp'
-***.include './netlists/nor2_32nm.sp'
-.include './netlists/nor2_16nm.sp'
+*.include './inverter.sp'
+.include './netlists/nor2_250nm.sp'
 
 * The format for the transistor is:
 * TRANSISTOR_NAME DRAIN GATE SOURCE BULK
@@ -34,7 +27,16 @@ Vgnd GND! 0 0
 * Vin=voltage_node_name; 'in'=positive terminal; '0'=negative terminal (0 is always GROUND)
 * pulse=>defines a pulse-type waveform
 * (0 'sup' is 0->1 transition
-* 1ns is delay at which 0->1 transition occurs
+25DP  L=240E-9 W=960E-9 AD=576E-15 AS=576E-15
+|* You MUST get rid of the .end statement
++PD=3.12E-6 PS=3.12E-6 M=1
+|*.include './inverter.sp'
+MP2 NET34 OUT NET19 NET19  TSMC25DP  L=240E-9 W=960E-9 AD=576E-15 AS=576E-15
+|.include './netlists/nor2_250nm.sp'
++PD=3.12E-6 PS=3.12E-6 M=1
+|
+MP1 NET27 NET12 VDD VDD  T
+
 * 200p => rise_time (0 to 100%)
 * 200p => fall_time (100% to 0%)
 * 5n   => period of the waveform
@@ -46,22 +48,22 @@ Vb IN_B 0 pulse(0 'sup' 3n 200p 200p 5n)
 * This measure statements will help you AUTOMATICALLY determine the tphl (high-to-low propagation speed)
 * and tplh 
 
-.measure tran tphl TRIG v(IN_A) val='sup/2' rise=1
-+                   TARG v(OUT) val='sup/2' fall=1
+.measure tran tphl TRIG v(VIN) val='sup/2' rise=1
++                   TARG v(VOUT) val='sup/2' fall=1
 
-.measure tran tplh TRIG v(IN_A) val='sup/2' fall=1
-+                   TARG v(OUT) val='sup/2' rise=1
+.measure tran tplh TRIG v(VIN) val='sup/2' fall=1
++                   TARG v(VOUT) val='sup/2' rise=1
 
 * static power
 .measure static_current avg i(Vvdd) from=0 to=.5ns
 .measure static_power param='static_current * sup'
 
 * triggers for 10% and 90% values
-.measure tran start_dynamic trig at 0n targ v(OUT) val = 'sup * .1' rise=1
-.measure tran stop_dynamic trig at 0n targ v(OUT) val = 'sup * .9' rise=1
+.measure tran start_dynamic trig at 0n targ v(VOUT) val = 'sup * .1' rise=1
+.measure tran stop_dynamic trig at 0n targ v(VOUT) val = 'sup * .9' rise=1
 
-.measure tran input_rise trig at 0n targ v(IN_A) val = 'sup * .1' rise=1
-.measure tran output_rise trig at 0n targ v(OUT) val = 'sup * .1' rise=1
+.measure tran input_rise trig at 0n targ v(VIN) val = 'sup * .1' rise=1
+.measure tran output_rise trig at 0n targ v(VOUT) val = 'sup * .1' rise=1
 .measure tran delay param='output_rise - input_rise'
 
 * dynamic power
@@ -79,20 +81,19 @@ Vb IN_B 0 pulse(0 'sup' 3n 200p 200p 5n)
 
 * Add these files if simulating 0.25um technology 
   
-***.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dN" NMOS 
-***.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dP" PMOS 
+.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dN" NMOS 
+.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dP" PMOS 
+
+* Add these files if simulation 0.18um technology
+* .include '130nm_process_TT.lib
+* Where 'TT" is using the typical NMOS, PMOS device corners
+*.lib "/nfs/farm/u4/p/postmaja/ece471/ECE472/18um_hspiceFiles/MM180_REG18_V122.lib" TT
 
 * Add these files if simulation 0.13um technology
-***.include 'process_libs/130nm_HP_01_20_2009.lib'
+* .include '130nm_process_TT.lib
 
-* Add these files if simulation 65nm technology
-***.include 'process_libs/65nm_HP_01_20_2009.lib'
-
-* Add these files if simulation 32nm technology
-***.include 'process_libs/32nm_HP_01_20_2009.lib'
-
-* Add these files if simulation 16nm technology
-.include 'process_libs/16nm_HP_01_20_2009.lib'
+* Add these files if simulation 0.32um technology
+*.include "./32nm_process_TT.lib"
 
 * Simulation control statements
 .options list node post
