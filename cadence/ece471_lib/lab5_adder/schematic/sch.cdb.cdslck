@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      branaugj
+HostName                       dear119-23.engr.oregonstate.edu
+ProcessIdentifier              8417
+ProcessCreationTime_UTC        1392417202
+ProcessCreationTime_Readable   Fri Feb 14 14:33:22 2014 PST
+AppIdentifier                  /usr/local/apps/cadence/IC5141/tools/dfII/bin/icfb.exe
+OSType                         lnx86
+ReasonForPlacingEditLock       XXsave write lock
+FilePathUsedToEditLock         /nfs/stak/students/b/branaugj/ece471_lab/cadence/ece471_lib/lab5_adder/schematic/sch.cdb
+TimeEditLocked                 Fri Feb 14 15:43:52 2014 PST

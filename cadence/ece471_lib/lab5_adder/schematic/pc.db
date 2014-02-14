@@ -1,0 +1,75 @@
+#
+NCSU_Analog_Parts pmos4 symbol
+P13
+P12
+P11
+P10
+P9
+P8
+P7
+P5
+P4
+P3
+P2
+P1
+P0
+P6
+#
+NCSU_Analog_Parts nmos4 symbol
+N14
+N12
+N11
+N10
+N9
+N8
+N7
+N6
+N5
+N4
+N3
+N2
+N1
+N0
+#ISCELL
+NCSU_Analog_Parts gnd symbol
+I14
+I13
+I12
+I11
+I10
+I9
+I8
+I7
+I6
+I5
+I4
+I3
+I2
+I1
+I0
+#ISCELL
+NCSU_Analog_Parts vdd symbol
+I29
+I28
+I27
+I26
+I25
+I24
+I23
+I22
+I21
+I20
+I19
+I18
+I17
+I16
+I15
+#ISCELL
+basic ipin symbol
+PIN2
+PIN1
+PIN0
+#ISCELL
+basic opin symbol
+PIN4
+PIN3
