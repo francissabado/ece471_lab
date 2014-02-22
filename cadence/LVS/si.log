@@ -1,0 +1,75 @@
+
+Running simulation in directory: "/nfs/stak/students/b/branaugj/ece471_lab/cadence/LVS".
+
+
+
+Begin netlist:    Feb 21 17:18:27 2014
+	view name list	= ("auLvs" "extracted" "schematic")
+	stop name list	= ("auLvs")
+	library name	= "ece471_lib"
+	cell name	= "lab5_adder"
+	view name	= "extracted"
+	globals lib	= "basic"
+Running Artist Flat Netlisting ...
+End netlist:    Feb 21 17:18:27 2014
+
+Moving original netlist to extNetlist
+Removing parasitic components from netlist
+	presistors removed:  0
+	pcapacitors removed: 12
+	pinductors removed:  0
+	pdiodes removed:     0
+	trans lines removed: 0
+	19 nodes merged into 19 nodes
+
+
+Begin netlist:    Feb 21 17:18:28 2014
+	view name list	= ("auLvs" "schematic")
+	stop name list	= ("auLvs")
+	library name	= "ece471_lib"
+	cell name	= "lab5_adder"
+	view name	= "schematic"
+	globals lib	= "basic"
+Running Artist Flat Netlisting ...
+End netlist:    Feb 21 17:18:28 2014
+
+Moving original netlist to extNetlist
+Removing parasitic components from netlist
+	presistors removed:  0
+	pcapacitors removed: 0
+	pinductors removed:  0
+	pdiodes removed:     0
+	trans lines removed: 0
+	21 nodes merged into 21 nodes
+
+Running netlist comparison program:  LVS
+Begin comparison:    Feb 21 17:18:28 2014
+@(#)$CDS: LVS.exe version 5.1.0 12/16/2007 23:30 (cicln04) $
+
+The net-lists match.
+
+			     layout  schematic
+				instances
+	un-matched		0	0
+	rewired			0	0
+	size errors		0	0
+	pruned			0	0
+	active			28	28
+	total			28	28
+
+				  nets
+	un-matched		0	0
+	merged			0	0
+	pruned			0	0
+	active			19	19
+	total			19	19
+
+				terminals
+	un-matched		0	0
+	matched but
+	different type		0	0
+	total			7	7
+End comparison:      Feb 21 17:18:28 2014
+
+
+Comparison program completed successfully.

@@ -1,0 +1,679 @@
+Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
+ ****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+  Copyright (C) 2011 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the
+  terms and conditions of the license agreement from Synopsys.
+  Use of this program is your acceptance to be bound by the
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: sim_deck                                                          
+  Command line options: sim_deck
+ lic:  
+ lic: FLEXlm: v10.8 
+ lic: USER:   branaugj             HOSTNAME: dear119-16.engr.oregonstate.edu 
+ lic: HOSTID: 8851fb6cfa07         PID:      20728 
+ lic: Using FLEXlm license file: 
+ lic: 7188@license.eecs.oregonstate.edu 
+ lic: Checkout 1 hspice 
+ lic: License/Maintenance for hspice will expire on 11-aug-2014/2013.03 
+ lic: 3(in_use)/50(total) FLOATING license(s) on SERVER license.eecs.oregonstate
+ lic:   
+ Init: read install configuration file: /usr/local/apps/synopsys/current_hspice/hspice/meta.cfg
+
+ **warning**  runlvl smaller than 5, reset to 5  when accurate turned on
+ scientific notation:
+ a=10**-18  f=10**-15  p=10**-12  n=10**-9  u=10**-6
+ m=10**-3   k=10**3    x=10**6    g=10**9 
+
+ **warning**  runlvl smaller than 5, reset to 5  when accurate turned on
+
+
+ circuit parameter definitions
+  parameter          =  value 
+
+     0:sup                                                     =   2.5000       
+     0:tplh                                                    =   0.           
+
+
+
+
+ constants  - tnom         kt           vt           gapsi        ni
+            298.15000    4.1163e-21    25.69184m     1.11562    1.2565e+16 
+1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  mos   model parameters tnom=  25.000 temp=  25.000 *****
+ ***************************************************************************
+ ***        model parameters  model name:   0:tsmc25dn model type:nmos   ***
+ ***************************************************************************
+
+   *** general parameters ***
+    deriv=   0.           
+
+   ***  level 49  model parameters  ***
+
+      hspver=    2006.03               level=         49         
+     version=        3.1            paramchk=          0         
+      apwarn=          1                lite=          0         
+      vgslim=          0             binUnit=          1         
+      capMod=          2               xpart=        0.4         
+      mobMod=          1              nqsMod=          0         
+      stiMod=          0                 elm=          5         
+    sfvtflag=          0                 tox=    5.8e-09 meter   
+          xj=      1e-07 meter       binflag=          0         
+        lmin=          0 meter          lmax=          0 meter   
+        wmin=          0 meter          wmax=          0 meter   
+        lref=          0 meter          wref=          0 meter   
+        lint=4.39347e-09 meter          wint= 2.1265e-09 meter   
+       lmult=          1               wmult=          1         
+          ll=          0                 lln=          1         
+          lw=          0                 lwn=          1         
+         lwl=          0                  wl=          0         
+         wln=          1                  ww=          0         
+         wwn=          1                 wwl=          0         
+         dwg=-3.40903e-09 m/V             dwb=2.79484e-09 m/V^1/2 
+          xl=     -3e-08                  xw=          0         
+          a0=    1.23186                 ags=   0.304333 V^-1    
+          b0=6.67749e-08 meter            b1=      5e-06 meter   
+        keta=0.000851805 V^-1           voff=  -0.102605 V       
+       ngate=          0 cm^-3           vbx=          0 V       
+         vbm=         -3 V                xt=   1.55e-07 meter   
+        vth0=   0.430894 V               nch= 2.3549e+17 cm^-3   
+        nsub=      6e+16 cm^-3           nlx= 1.4659e-07 meter   
+      gamma1=          0 V^-1/2       gamma2=          0 V^-1/2  
+          k1=   0.351943 V^1/2            k2=  0.0298493         
+          k3=      0.001                 k3b=  0.0592323 V^-1    
+          w0=      1e-05 meter          dvt0=  0.0183405         
+        dvt1= 0.00489758                dvt2= -0.0252658 V^-1    
+       dvt0w=          0 meter^-1      dvt1w=          0 meter^-1
+       dvt2w=          0 V^-1           dsub= 0.00304547         
+        eta0= 0.00348737                etab=0.000455799 V^-1    
+          u0=    455.303 cm^2/V/sec         ua=5.22359e-10 m/V     
+          ub=1.10471e-18 (m/V)^2          uc=3.28789e-11 V^-1    
+        vsat=     105099 m/sec            a1=          0 v^-1    
+          a2=          1               delta=       0.01 V       
+        rdsw=    509.568 ohm-um         prwg=  0.0227558 V^-1    
+        prwb=     -0.001 V^-1/2           wr=          1         
+        pclm=    1.04463             pdiblc1=   0.144195         
+     pdiblc2=0.000451338             pdiblcb=-2.81676e-05 V^-1    
+      pscbe1=1.76111e+10 V/m          pscbe2=3.77292e-09 V/m     
+       drout=   0.469872                pvag=  0.0361824         
+     nfactor=   0.134489                cdsc= 0.00152751 f/m^2   
+       cdscb=          0 f/V/m^2       cdscd=          0 f/V/m^2 
+         cit=          0 f/m^2        alpha0=          0 m/V     
+       beta0=         30 V               dlc=4.39347e-09 meter   
+         dwc= 2.1265e-09 meter           clc=      1e-07 meter   
+         cle=        0.6                cgso=   6.27e-10 f/m     
+        cgdo=   6.27e-10 f/m            cgbo=          0 f/m     
+        cgsl=          0 f/m            cgdl=          0 f/m     
+      ckappa=        0.6                  cf=9.33852e-11 f/m     
+        tnom=     300.15 K               kt1=      -0.11 V       
+        kt1l=          0                 kt2=      0.022         
+         ute=       -1.5                 ua1=   4.31e-09 m/V     
+         ub1=  -7.61e-18 (m/V)^2         uc1=   -5.6e-11 m/V^2   
+          at=      33000 m/s             prt=          0         
+         using Berkeley noise model       noiMod=          1         
+        noia=      1e+20                noib=      50000         
+        noic=   -1.4e-12                  em=    4.1e+07         
+          ef=          1                  af=          1         
+          kf=          0              gdsnoi=-1.23457e-29         
+         using Hspice diodes            using ACM 
+         acm=         0                 hdif=         0 meter    
+        ldif=         0 meter             js=         0 amp/m^2  
+         jsw=         0 amp/m            xti=         0          
+           n=         1                   cj=0.00191866 f/m^2    
+          mj=  0.472173                   pb=  0.978405 V        
+        cjsw=4.44159e-10 f/m             mjsw=  0.287112          
+         php=  0.978405 V               pbsw (not used)           
+      cjgate=4.44159e-10 f/m            cjswg (not used)           
+       mjswg (not used)                 pbswg (not used)           
+       lketa=-0.00614406               wketa=0.000751269         
+       pvth0= 0.00134299                 pk2=-0.00314072         
+       prdsw=   -61.8357         
+ ***************************************************************************
+ ***        model parameters  model name:   0:tsmc25dp model type:pmos   ***
+ ***************************************************************************
+
+   *** general parameters ***
+    deriv=   0.           
+
+   ***  level 49  model parameters  ***
+
+      hspver=    2006.03               level=         49         
+     version=        3.1            paramchk=          0         
+      apwarn=          1                lite=          0         
+      vgslim=          0             binUnit=          1         
+      capMod=          2               xpart=        0.4         
+      mobMod=          1              nqsMod=          0         
+      stiMod=          0                 elm=          5         
+    sfvtflag=          0                 tox=    5.8e-09 meter   
+          xj=      1e-07 meter       binflag=          0         
+        lmin=          0 meter          lmax=          0 meter   
+        wmin=          0 meter          wmax=          0 meter   
+        lref=          0 meter          wref=          0 meter   
+        lint=8.71907e-09 meter          wint=2.74881e-08 meter   
+       lmult=          1               wmult=          1         
+          ll=          0                 lln=          1         
+          lw=          0                 lwn=          1         
+         lwl=          0                  wl=          0         
+         wln=          1                  ww=          0         
+         wwn=          1                 wwl=          0         
+         dwg=-4.08759e-08 m/V             dwb=2.03201e-08 m/V^1/2 
+          xl=     -3e-08                  xw=          0         
+          a0=    1.38264                 ags=   0.419298 V^-1    
+          b0= 2.8441e-06 meter            b1=      5e-06 meter   
+        keta=  0.0208695 V^-1           voff=      -0.15 V       
+       ngate=          0 cm^-3           vbx=          0 V       
+         vbm=         -3 V                xt=   1.55e-07 meter   
+        vth0=  -0.615873 V               nch= 4.1589e+17 cm^-3   
+        nsub=      6e+16 cm^-3           nlx=      1e-09 meter   
+      gamma1=          0 V^-1/2       gamma2=          0 V^-1/2  
+          k1=   0.459838 V^1/2            k2=  0.0399415         
+          k3=          0                 k3b=    8.74107 V^-1    
+          w0=      1e-06 meter          dvt0=   0.624949         
+        dvt1=   0.203296                dvt2= -0.0513763 V^-1    
+       dvt0w=          0 meter^-1      dvt1w=          0 meter^-1
+       dvt2w=          0 V^-1           dsub=    1.02871         
+        eta0=   0.324124                etab=    -0.1842 V^-1    
+          u0=    158.675 cm^2/V/sec         ua=2.20002e-10 m/V     
+          ub=4.45742e-18 (m/V)^2          uc=1.02138e-10 V^-1    
+        vsat=     185064 m/sec            a1=          0 v^-1    
+          a2=          1               delta=       0.01 V       
+        rdsw=    968.546 ohm-um         prwg=  -0.102648 V^-1    
+        prwb=     -0.325 V^-1/2           wr=          1         
+        pclm=    5.26546             pdiblc1= 0.00422834         
+     pdiblc2= 0.00120452             pdiblcb= 0.00237525 V^-1    
+      pscbe1=3.01146e+10 V/m          pscbe2=3.03704e-07 V/m     
+       drout=          0                pvag=    8.95643         
+     nfactor=    1.54605                cdsc=0.000141332 f/m^2   
+       cdscb=          0 f/V/m^2       cdscd=          0 f/V/m^2 
+         cit=          0 f/m^2        alpha0=          0 m/V     
+       beta0=         30 V               dlc=8.71907e-09 meter   
+         dwc=2.74881e-08 meter           clc=      1e-07 meter   
+         cle=        0.6                cgso=   5.59e-10 f/m     
+        cgdo=   5.59e-10 f/m            cgbo=          0 f/m     
+        cgsl=          0 f/m            cgdl=          0 f/m     
+      ckappa=        0.6                  cf=9.33852e-11 f/m     
+        tnom=     300.15 K               kt1=      -0.11 V       
+        kt1l=          0                 kt2=      0.022         
+         ute=       -1.5                 ua1=   4.31e-09 m/V     
+         ub1=  -7.61e-18 (m/V)^2         uc1=   -5.6e-11 m/V^2   
+          at=      33000 m/s             prt=          0         
+         using Berkeley noise model       noiMod=          1         
+        noia=    9.9e+18                noib=       2400         
+        noic=    1.4e-12                  em=    4.1e+07         
+          ef=          1                  af=          1         
+          kf=          0              gdsnoi=-1.23457e-29         
+         using Hspice diodes            using ACM 
+         acm=         0                 hdif=         0 meter    
+        ldif=         0 meter             js=         0 amp/m^2  
+         jsw=         0 amp/m            xti=         0          
+           n=         1                   cj=0.00188286 f/m^2    
+          mj=  0.467979                   pb=  0.989132 V        
+        cjsw=3.67186e-10 f/m             mjsw=  0.356213          
+         php=  0.989132 V               pbsw (not used)           
+      cjgate=3.67186e-10 f/m            cjswg (not used)           
+       mjswg (not used)                 pbswg (not used)           
+       lketa= -0.0232426               lvsat=     125700         
+       wketa= 0.00410049               pvth0= 0.00392376         
+         pk2= 0.00206176               prdsw=    15.3953         
+  **info** (sim_deck:23) DC voltage reset to initial transient source value              in source        0:vb                  new dc=  0.0000D+00
+  **warning** (sim_deck:23) pulse vb period too small, reset to   2.3200000E-08
+  **warning** (sim_deck:4) Both nodes of element vgnd are connected together; Line ignored.
+ 
+
+1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  circuit element summary tnom=  25.000 temp=  25.000 *****
+
+
+ **** capacitors
+  
+  
+                                                              
+ element name        0:c20      0:c21      0:c22      0:c23   
+ node1               0:0        0:0        0:s        0:co    
+ node2               0:5        0:2        0:0        0:0     
+ model                                                        
+ cap eff             3.9300f    6.0693f    2.3194f    2.7900f 
+ tc1                 0.         0.         0.         0.      
+ tc2                 0.         0.         0.         0.      
+ scale               1.0000     1.0000     1.0000     1.0000  
+ ic                  0.         0.         0.         0.      
+ m                   1.0000     1.0000     1.0000     1.0000  
+ w                   0.         0.         0.         0.      
+ l                   0.         0.         0.         0.      
+ temp               25.0000    25.0000    25.0000    25.0000  
+  
+  
+                                                              
+ element name        0:c24      0:c25      0:c26      0:c27   
+ node1               0:ci       0:b        0:a        0:vdd!  
+ node2               0:0        0:0        0:0        0:0     
+ model                                                        
+ cap eff             5.3950f    8.7915f    9.2718f   14.0550f 
+ tc1                 0.         0.         0.         0.      
+ tc2                 0.         0.         0.         0.      
+ scale               1.0000     1.0000     1.0000     1.0000  
+ ic                  0.         0.         0.         0.      
+ m                   1.0000     1.0000     1.0000     1.0000  
+ w                   0.         0.         0.         0.      
+ l                   0.         0.         0.         0.      
+ temp               25.0000    25.0000    25.0000    25.0000  
+  
+  
+                                                              
+ element name        0:c28      0:c29      0:c30      0:c31   
+ node1               0:0        0:0        0:s        0:co    
+ node2               0:5        0:2        0:0        0:0     
+ model                                                        
+ cap eff             4.3204f    3.0196f    2.5544f    2.4992f 
+ tc1                 0.         0.         0.         0.      
+ tc2                 0.         0.         0.         0.      
+ scale               1.0000     1.0000     1.0000     1.0000  
+ ic                  0.         0.         0.         0.      
+ m                   1.0000     1.0000     1.0000     1.0000  
+ w                   0.         0.         0.         0.      
+ l                   0.         0.         0.         0.      
+ temp               25.0000    25.0000    25.0000    25.0000  
+
+
+ **** independent sources
+
+     name         node1        node2      dc volt    ac mag    ac phase    type
+  va  a                 0                    2.5000     0.         0.      dc   
+  vb  b                 0                    0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...   200.0000p
+             risetime.....   200.0000p
+             falltime.....     3.0000n
+             width........    20.0000n
+             period.......    23.2000n
+
+  vc  ci                0                    2.5000     0.         0.      dc   
+  vvdd  vdd!              0                    2.5000     0.         0.      dc   
+
+
+ **** mosfets
+
+
+ **** BSIM3v3 Model (Level49 or Level53)
+  
+  
+                                                                          
+ element name        0:m32         0:m33         0:m34         0:m35      
+ drain               0:5           0:17          0:17          0:17       
+ gate                0:2           0:ci          0:b           0:a        
+ source              0:17          0:vdd!        0:vdd!        0:vdd!     
+ bulk                0:vdd!        0:vdd!        0:vdd!        0:vdd!     
+ model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dp    0:tsmc25dp 
+ w eff               1.8650u       1.8650u       1.8650u       1.8650u    
+ l eff             192.5619n     192.5619n     192.5619n     192.5619n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               3.3147f       3.3147f       3.3147f       3.3147f    
+ capbs               3.3147f       3.3147f       3.3147f       3.3147f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        0:m36         0:m37         0:m38         0:m39      
+ drain               0:2           0:16          0:5           0:19       
+ gate                0:a           0:b           0:ci          0:b        
+ source              0:16          0:vdd!        0:19          0:18       
+ bulk                0:vdd!        0:vdd!        0:vdd!        0:vdd!     
+ model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dp    0:tsmc25dp 
+ w eff               1.8650u       1.8650u       2.8250u       2.8250u    
+ l eff             192.5619n     192.5619n     192.5619n     192.5619n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               3.3147f       3.3147f       4.7517f       4.7517f    
+ capbs               3.3147f       3.3147f       4.7517f       4.7517f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        0:m40         0:m41         0:m42         0:m43      
+ drain               0:18          0:s           0:co          0:2        
+ gate                0:a           0:5           0:2           0:ci       
+ source              0:vdd!        0:vdd!        0:vdd!        0:15       
+ bulk                0:vdd!        0:vdd!        0:vdd!        0:vdd!     
+ model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dp    0:tsmc25dp 
+ w eff               2.8250u       5.7050u       5.7050u       5.7050u    
+ l eff             192.5619n     192.5619n     192.5619n     192.5619n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               4.7517f       9.0628f       9.0628f       9.0628f    
+ capbs               4.7517f       9.0628f       9.0628f       9.0628f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        0:m44         0:m45         0:m46         0:m47      
+ drain               0:15          0:15          0:5           0:4        
+ gate                0:b           0:a           0:2           0:ci       
+ source              0:vdd!        0:vdd!        0:4           0:0        
+ bulk                0:vdd!        0:vdd!        0:0           0:0        
+ model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dn    0:tsmc25dn 
+ w eff               5.7050u       5.7050u     955.7470n     955.7470n    
+ l eff             192.5619n     192.5619n     201.2130n     201.2130n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               9.0628f       9.0628f       2.0645f       2.0645f    
+ capbs               9.0628f       9.0628f       2.0645f       2.0645f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        0:m48         0:m49         0:m50         0:m51      
+ drain               0:4           0:4           0:2           0:3        
+ gate                0:b           0:a           0:a           0:b        
+ source              0:0           0:0           0:3           0:0        
+ bulk                0:0           0:0           0:0           0:0        
+ model               0:tsmc25dn    0:tsmc25dn    0:tsmc25dn    0:tsmc25dn 
+ w eff             955.7470n     955.7470n     955.7470n     955.7470n    
+ l eff             201.2130n     201.2130n     201.2130n     201.2130n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               2.0645f       2.0645f       2.0645f       2.0645f    
+ capbs               2.0645f       2.0645f       2.0645f       2.0645f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        0:m52         0:m53         0:m54         0:m55      
+ drain               0:5           0:7           0:6           0:s        
+ gate                0:ci          0:a           0:b           0:5        
+ source              0:7           0:6           0:0           0:0        
+ bulk                0:0           0:0           0:0           0:0        
+ model               0:tsmc25dn    0:tsmc25dn    0:tsmc25dn    0:tsmc25dn 
+ w eff               1.4357u       1.4357u       1.4357u       2.8757u    
+ l eff             201.2130n     201.2130n     201.2130n     201.2130n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               2.8303f       2.8303f       2.8303f       5.1276f    
+ capbs               2.8303f       2.8303f       2.8303f       5.1276f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        0:m56         0:m57         0:m58         0:m59      
+ drain               0:co          0:2           0:1           0:1        
+ gate                0:2           0:ci          0:b           0:a        
+ source              0:0           0:1           0:0           0:0        
+ bulk                0:0           0:0           0:0           0:0        
+ model               0:tsmc25dn    0:tsmc25dn    0:tsmc25dn    0:tsmc25dn 
+ w eff               2.8757u       2.8757u       2.8757u       2.8757u    
+ l eff             201.2130n     201.2130n     201.2130n     201.2130n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               5.1276f       5.1276f       5.1276f       5.1276f    
+ capbs               5.1276f       5.1276f       5.1276f       5.1276f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  element node table
+                                                                                      
+ 0                c20              c21              c22              c23              
+                  c24              c25              c26              c27              
+                  c28              c29              c30              c31              
+                  va               vb               vc               vvdd             
+                  m46:b            m47:s            m47:b            m48:s            
+                  m48:b            m49:s            m49:b            m50:b            
+                  m51:s            m51:b            m52:b            m53:b            
+                  m54:s            m54:b            m55:s            m55:b            
+                  m56:s            m56:b            m57:b            m58:s            
+                  m58:b            m59:s            m59:b                             
+ 1                m57:s            m58:d            m59:d                             
+ 2                c21              c29              m32:g            m36:d            
+                  m42:g            m43:d            m46:g            m50:d            
+                  m56:g            m57:d                                              
+ 3                m50:s            m51:d                                              
+ 4                m46:s            m47:d            m48:d            m49:d            
+ 5                c20              c28              m32:d            m38:d            
+                  m41:g            m46:d            m52:d            m55:g            
+ 6                m53:s            m54:d                                              
+ 7                m52:s            m53:d                                              
+ 15               m43:s            m44:d            m45:d                             
+ 16               m36:s            m37:d                                              
+ 17               m32:s            m33:d            m34:d            m35:d            
+ 18               m39:s            m40:d                                              
+ 19               m38:s            m39:d                                              
+ a                c26              va               m35:g            m36:g            
+                  m40:g            m45:g            m49:g            m50:g            
+                  m53:g            m59:g                                              
+ b                c25              vb               m34:g            m37:g            
+                  m39:g            m44:g            m48:g            m51:g            
+                  m54:g            m58:g                                              
+ ci               c24              vc               m33:g            m38:g            
+                  m43:g            m47:g            m52:g            m57:g            
+ co               c23              c31              m42:d            m56:d            
+ s                c22              c30              m41:d            m55:d            
+ vdd!             c27              vvdd             m32:b            m33:s            
+                  m33:b            m34:s            m34:b            m35:s            
+                  m35:b            m36:b            m37:s            m37:b            
+                  m38:b            m39:b            m40:s            m40:b            
+                  m41:s            m41:b            m42:s            m42:b            
+                  m43:b            m44:s            m44:b            m45:s            
+                  m45:b                                                               
+ **info** set option symb=1 internally to help for convergence.
+ *****************************************************************
+ ******  option summary
+ ******
+ runlvl  = 5         bypass  = 2         
+1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  temperature-adjusted values tnom=  25.000 temp=  25.000 *****
+
+ constants  - temp             kt               vt               gapsi            ni
+            298.1500         4.116e-21         25.6918m          1.1156         1.256e+16      
+
+ *** capacitors
+    name        eff val
+
+
+
+ *** mosfet element parameters
+ name             rd eff           rs eff           cdsat            cssat              vto                beta
+
+
+        0:m32                 0.               0.               0.               0.            -604.9478m          1.4561m      
+        0:m33                 0.               0.               0.               0.            -604.9478m          1.4561m      
+        0:m34                 0.               0.               0.               0.            -604.9478m          1.4561m      
+        0:m35                 0.               0.               0.               0.            -604.9478m          1.4561m      
+        0:m36                 0.               0.               0.               0.            -604.9478m          1.4561m      
+        0:m37                 0.               0.               0.               0.            -604.9478m          1.4561m      
+        0:m38                 0.               0.               0.               0.            -608.6606m          2.2056m      
+        0:m39                 0.               0.               0.               0.            -608.6606m          2.2056m      
+        0:m40                 0.               0.               0.               0.            -608.6606m          2.2056m      
+        0:m41                 0.               0.               0.               0.            -612.3018m          4.4542m      
+        0:m42                 0.               0.               0.               0.            -612.3018m          4.4542m      
+        0:m43                 0.               0.               0.               0.            -612.3018m          4.4542m      
+        0:m44                 0.               0.               0.               0.            -612.3018m          4.4542m      
+        0:m45                 0.               0.               0.               0.            -612.3018m          4.4542m      
+        0:m46                 0.               0.               0.               0.             437.8771m          1.7139m      
+        0:m47                 0.               0.               0.               0.             437.8771m          1.7139m      
+        0:m48                 0.               0.               0.               0.             437.8771m          1.7139m      
+        0:m49                 0.               0.               0.               0.             437.8771m          1.7139m      
+        0:m50                 0.               0.               0.               0.             437.8771m          1.7139m      
+        0:m51                 0.               0.               0.               0.             437.8771m          1.7139m      
+        0:m52                 0.               0.               0.               0.             435.5424m          2.5746m      
+        0:m53                 0.               0.               0.               0.             435.5424m          2.5746m      
+        0:m54                 0.               0.               0.               0.             435.5424m          2.5746m      
+        0:m55                 0.               0.               0.               0.             433.2145m          5.1569m      
+        0:m56                 0.               0.               0.               0.             433.2145m          5.1569m      
+        0:m57                 0.               0.               0.               0.             433.2145m          5.1569m      
+        0:m58                 0.               0.               0.               0.             433.2145m          5.1569m      
+        0:m59                 0.               0.               0.               0.             433.2145m          5.1569m      
+1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  operating point information tnom=  25.000 temp=  25.000 *****
+ ***** operating point status is voltage   simulation time is     0.     
+    node    =voltage      node    =voltage      node    =voltage
+
+ +0:1       =  68.4873n 0:2       = 136.9746n 0:3       = 136.9745n
+ +0:4       =  28.4403n 0:5       =   2.5000  0:6       =   2.0940 
+ +0:7       =   2.1211  0:15      =   2.5000  0:16      =   2.5000 
+ +0:17      =   2.5000  0:18      =   2.5000  0:19      =   2.5000 
+ +0:a       =   2.5000  0:b       =   0.      0:ci      =   2.5000 
+ +0:co      =   2.5000  0:s       =  48.5092n 0:vdd!    =   2.5000 
+
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  transient analysis tnom=  25.000 temp=  25.000 *****
+ tplh= 123.9020p  targ= 646.7129p   trig= 522.8110p
+
+          ***** job concluded
+1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
+ ******  
+ * 'sup' is a variable you set to adjust the supply voltage
+
+  ******  job statistics summary tnom=  25.000 temp=  25.000 *****
+  
+  
+ ******  Machine Information  ******
+ CPU:
+ model name	: Intel(R) Xeon(R) CPU E3-1240 V2 @ 3.40GHz
+ cpu MHz	: 3401.000
+  
+ OS:
+ Linux version 2.6.32-431.1.2.0.1.el6.x86_64 (mockbuild@c6b9.bsys.dev.centos.org
+ ) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Fri Dec 13 13:06
+ :13 UTC 2013
+
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :     8
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =      19 # elements   =      44
+  # resistors   =       0 # capacitors =      12 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       4
+  # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =      28 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       0
+  # vector_srcs =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           0.00           1          19
+  transient          0.01        2001         263         103 rev=        15
+  readin             0.01
+  errchk             0.01
+  setup              0.00
+  output             0.00
+
+
+           peak memory used         95.86 megabytes
+           total cpu time            0.03 seconds
+           total elapsed time        0.38 seconds
+           job started at     18:42:38 02/21/2014
+           job ended   at     18:42:38 02/21/2014
+
+
+ lic: Release hspice token(s) 

@@ -1,0 +1,60 @@
+* 'sup' is a variable you set to adjust the supply voltage
+
+Vvdd VDD! 0 'sup'
+Vgnd GND! 0 0
+
+* Value of the power supply. 2.5V(0.25um); 1.8V(0.18um); 1.2V(0.13um); 1.0V(90nm, 65nm); 0.9V(32nm)
+.param sup=2.5
+
+* Include the netlist into the simulation
+* For example, 'inverter_sch.spi' (inverter schematic)
+* For example, 'inverter_lay.spi' (inverter layout)
+* You MUST get rid of the .end statement
+.include './netlists/adder_extracted.sp'
+
+* The format for the transistor is:
+* TRANSISTOR_NAME DRAIN GATE SOURCE BULK
+* P_18_MM refers to 0.18um-PMOS device; P_18_MM=>NMOS 
+* L=length; W=width; AD=Area of Drain; AS=Area of Source; PD=Perimeter of Drain; PS=Perimeter of source; 
+* M=multiplier, # of transistors in parallel
+
+* Source order for worst case tplh at S
+Va A 0 'sup'
+Vb B 0 pulse(0 'sup' 200p 200p 3n)
+Vc CI 0 'sup'
+
+* .measure statements, which can directly measure the values: tphl/tplh 
+* you will need to add some more of these yourself to measure trise,tfall,power_avg
+* This measure statements will help you AUTOMATICALLY determine the tphl (high-to-low propagation speed)
+* and tplh 
+
+.measure tran tplh TRIG v(S) val='sup * 0.1' rise=1
++                   TARG v(S) val='sup * 0.9' rise=1
+
+* Add these files if simulating 0.25um technology 
+  
+.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dN" NMOS 
+.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dP" PMOS 
+
+* Add these files if simulation 0.18um technology
+* .include '130nm_process_TT.lib
+* Where 'TT" is using the typical NMOS, PMOS device corners
+*.lib "/nfs/farm/u4/p/postmaja/ece471/ECE472/18um_hspiceFiles/MM180_REG18_V122.lib" TT
+
+* Add these files if simulation 0.13um technology
+* .include '130nm_process_TT.lib
+
+* Add these files if simulation 0.32um technology
+*.include "./32nm_process_TT.lib"
+
+* Simulation control statements
+.options list node post
++ accurate
+
+* 10ps=minimum time step; 20ns=duration of the transient simulation
+.tran 10p 20n
+
+* Allows you to sweep a dc voltage parameter
+*.dc
+
+.end 

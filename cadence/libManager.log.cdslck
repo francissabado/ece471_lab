@@ -5,12 +5,12 @@
 #
 LockStakeVersion               1.1
 LoginName                      branaugj
-HostName                       dear119-23.engr.oregonstate.edu
-ProcessIdentifier              8476
-ProcessCreationTime_UTC        1392417212
-ProcessCreationTime_Readable   Fri Feb 14 14:33:32 2014 PST
+HostName                       dear119-16.engr.oregonstate.edu
+ProcessIdentifier              19668
+ProcessCreationTime_UTC        1393034690
+ProcessCreationTime_Readable   Fri Feb 21 18:04:50 2014 PST
 AppIdentifier                  /nfs/guille/a2/rh80apps/cadence/IC5141/tools/dfII/bin/32bit/libManager.exe
 OSType                         lnx86
 ReasonForPlacingEditLock       log file
 FilePathUsedToEditLock         /nfs/stak/students/b/branaugj/ece471_lab/cadence/libManager.log
-TimeEditLocked                 Fri Feb 14 14:33:33 2014 PST
+TimeEditLocked                 Fri Feb 21 18:04:50 2014 PST

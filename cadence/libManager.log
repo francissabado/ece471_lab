@@ -1,7 +1,7 @@
 \o Program:		@(#)$CDS: libManager.exe version 5.0.2 01/23/2007 12:28 (ocelot-linux.Cadence.COM) $
 \o Sub version:		sub-version 03.01-s042
-\o Arguments:		-mpssession icfb8417 -mpshost dear119-23.engr.oregonstate.edu 
-\o Working Directory:	dear119-23.engr.oregonstate.edu:/nfs/stak/students/b/branaugj/ece471_lab/cadence
+\o Arguments:		-mpssession icfb19622 -mpshost dear119-16.engr.oregonstate.edu 
+\o Working Directory:	dear119-16.engr.oregonstate.edu:/nfs/stak/students/b/branaugj/ece471_lab/cadence
 \o Extended color mode (TrueColor 32 0x23) in use.
 \o Loading customization file "/nfs/stak/students/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/cdssetup/cdsLibMgr.il"
 \o Loading NCSU Library Manager customizations...done.
@@ -13,5 +13,7 @@ MPS service: map window
 MPS service: map window
 MPS service: map window
 MPS service: map window
-Main selection: ece471_lib
-Invoking command (fileNewCellView).
+Main selection: ece471_lib lab5_adder schematic
+\o Opening design file through session server.
+MPS request: edit design
+MPS request: update library list
