@@ -1,0 +1,27 @@
+#
+ece471_lib lab6_full_adder symbol
+I4
+I3
+I2
+I1
+#
+ece471_lib lab6_carry_block symbol
+I0
+#ISCELL
+basic ipin symbol
+PIN13
+PIN12
+PIN11
+PIN10
+PIN9
+PIN8
+PIN7
+PIN6
+PIN0
+#ISCELL
+basic opin symbol
+PIN5
+PIN4
+PIN3
+PIN2
+PIN1

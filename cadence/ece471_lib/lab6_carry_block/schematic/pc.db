@@ -1,0 +1,41 @@
+#
+NCSU_Digital_Parts or2 symbol
+I16
+I14
+I15
+I10
+I11
+I8
+I5
+I4
+I1
+I3
+#
+NCSU_Digital_Parts and2 symbol
+I19
+I18
+I17
+I12
+I13
+I7
+I6
+I2
+I0
+I9
+#ISCELL
+basic opin symbol
+PIN10
+PIN8
+PIN9
+PIN1
+#ISCELL
+basic ipin symbol
+PIN2
+PIN5
+PIN11
+PIN4
+PIN3
+PIN7
+PIN12
+PIN0
+PIN6

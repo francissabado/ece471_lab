@@ -1,0 +1,8 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 32-BIT'
+.TITLE '* 'sup' is a variable you set to adjust the supply voltage'
+ tplh             static_current   static_power     start_dynamic     
+ stop_dynamic     dynamic_current  dynamic_power    temper            
+ alter#            
+  1.088e-09       -7.270e-09       -1.818e-08        3.120e-09        
+  3.331e-09       -3.701e-04       -9.251e-04         25.0000         
+ 1                 

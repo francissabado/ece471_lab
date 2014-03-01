@@ -1,0 +1,73 @@
+***** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******
+ Input File: sim_deck
+ lic:
+ lic: FLEXlm: v10.8
+ lic: USER:   branaugj             HOSTNAME: dear119-14.engr.oregonstate.edu
+ lic: HOSTID: 7446a0a946ce         PID:      28750
+ lic: Using FLEXlm license file:
+ lic: 7188@license.eecs.oregonstate.edu
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 11-aug-2014/2013.03
+ lic: 3(in_use)/50(total) FLOATING license(s) on SERVER license.eecs.oregonstate
+ lic:
+ init: begin read circuit files,  cpu clock=  5.00E-02
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/ad
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/ad
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/behave
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/bjt
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/burr_brn
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/comlinear
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/dio
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/fet
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/lin_tech
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/pci
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/signet
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/ti
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/tline
+       option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
+                         spice/parts/xilinx
+       option runlvl
+       option list
+       option node
+       option post
+       option accura
+ init: end read circuit files,  cpu clock=  5.00E-02 memory=    288 kb
+ init: begin check errors,  cpu clock=  5.00E-02
+ init: end check errors,  cpu clock=  9.00E-02 memory=   2392 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  9.00E-02
+       establish matrix -- done,  cpu clock=  9.00E-02 memory=   2496 kb
+       re-order matrix -- done,  cpu clock=  9.00E-02 memory=   2486 kb
+ init: end setup matrix,  cpu clock=  9.00E-02 memory=   2836 kb
+ dcop: begin dcop,  cpu clock=  9.00E-02
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ dcop: end dcop,  cpu clock=  1.40E-01 memory=   2837 kb  tot_iter=     137
+ output: sim_deck.mt0
+ sweep: tran tran0    begin, stop_t=  2.00E-08 #sweeps=2001 cpu clock=  1.40E-01
+ tran: time= 2.0000E-09 tot_iter=      14 conv_iter=       7 cpu clock= 1.50E-01
+ tran: time= 4.0460E-09 tot_iter=     521 conv_iter=     185 cpu clock= 2.80E-01
+ tran: time= 6.1964E-09 tot_iter=     531 conv_iter=     190 cpu clock= 2.80E-01
+ tran: time= 8.8720E-09 tot_iter=     537 conv_iter=     193 cpu clock= 2.80E-01
+ tran: time= 1.0872E-08 tot_iter=     541 conv_iter=     195 cpu clock= 2.90E-01
+ tran: time= 1.2872E-08 tot_iter=     545 conv_iter=     197 cpu clock= 2.90E-01
+ tran: time= 1.4872E-08 tot_iter=     549 conv_iter=     199 cpu clock= 2.90E-01
+ tran: time= 1.6872E-08 tot_iter=     553 conv_iter=     201 cpu clock= 2.90E-01
+ tran: time= 1.8872E-08 tot_iter=     557 conv_iter=     203 cpu clock= 2.90E-01
+ tran: time= 2.0000E-08 tot_iter=     561 conv_iter=     205 cpu clock= 2.90E-01
+ sweep: tran tran0    end,  cpu clock=  2.90E-01 memory=   2837 kb
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

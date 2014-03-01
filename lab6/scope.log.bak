@@ -1,0 +1,3 @@
+ScopeSigMgr:loadpffile /nfs/stak/students/b/branaugj/ece471_lab/lab6/sim_deck.tr0 1 openonly
+# PF:1
+ScopeSigMgr:Unload 0 {{(1) sim_deck.tr0}}

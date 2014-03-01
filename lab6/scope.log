@@ -1,0 +1,9 @@
+ScopeSigMgr:loadpffile /nfs/stak/students/b/branaugj/ece471_lab/lab6/sim_deck.tr0 1 openonly
+# PF:1
+pf:read PF:1 v(c0) v(s3)
+# WF:1:1 WF:1:2
+Graph addsignal {WF:1:1 WF:1:2} -region {new new} -yview {real(y) real(y)} -xview {real(x) real(x)} -tracehi {2 2}
+# Signal0 Signal1
+Mdi:FullSize
+Mdi:ArrangeIcons
+wm geometry . 1920x1095+0+25
