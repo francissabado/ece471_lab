@@ -1,0 +1,48 @@
+#
+ece471_lib final_inverter symbol
+I20
+I19
+I18
+I17
+#
+ece471_lib final_and4 symbol
+I15
+I14
+I13
+I12
+I11
+I10
+I9
+I8
+I7
+I6
+I5
+I4
+I3
+I2
+I1
+I0
+#ISCELL
+basic opin symbol
+PIN19
+PIN18
+PIN17
+PIN16
+PIN15
+PIN14
+PIN13
+PIN12
+PIN11
+PIN10
+PIN9
+PIN8
+PIN7
+PIN6
+PIN5
+PIN4
+#ISCELL
+basic ipin symbol
+PIN3
+PIN2
+PIN1
+PIN0
