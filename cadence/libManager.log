@@ -1,7 +1,7 @@
 \o Program:		@(#)$CDS: libManager.exe version 5.0.2 01/23/2007 12:28 (ocelot-linux.Cadence.COM) $
 \o Sub version:		sub-version 03.01-s042
-\o Arguments:		-mpssession icfb15350 -mpshost dear119-24.engr.oregonstate.edu 
-\o Working Directory:	dear119-24.engr.oregonstate.edu:/nfs/stak/students/b/branaugj/ece471_lab/cadence
+\o Arguments:		-mpssession icfb9290 -mpshost dear119-15.engr.oregonstate.edu 
+\o Working Directory:	dear119-15.engr.oregonstate.edu:/nfs/stak/students/b/branaugj/ece471_lab/cadence
 \o Extended color mode (TrueColor 32 0x23) in use.
 \o Loading customization file "/nfs/stak/students/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/cdssetup/cdsLibMgr.il"
 \o Loading NCSU Library Manager customizations...done.
@@ -13,65 +13,15 @@ MPS service: map window
 MPS service: map window
 MPS service: map window
 MPS service: map window
-Main selection: ece471_lib
-Invoking command (fileNewCellView).
-Main selection: ece471_lib final schematic
-Invoking command (fileNewCellView).
-\o Opening design file through session server.
-MPS request: edit design
-Main selection: ece471_lib and_gate schematic
-Invoking command (editDelete).
-Showing dialog "Delete Cells" (deleteDialog).
-Dialog activated Ok in "Delete Cells" (deleteDialog).
-Showing dialog "Delete Confirmation" (genericDialog).
-\o Remove 1 cell from disk?
-\o 
-\o Library: ece471_lib
-\o      Cell: and_gate
-Dialog activated Yes in "Delete Confirmation" (genericDialog).
-Closing dialog "Delete Confirmation" (genericDialog).
-\o Deleting cell "and_gate" from library "ece471_lib".
-Showing dialog "Deleting Files" (tdmWorkingDialog).
-Main selection: ece471_lib
-\o Deleted cell 'ece471_lib/and_gate'.
-Main selection: ece471_lib final schematic
-Closing dialog "Deleting Files" (tdmWorkingDialog).
-\o Deletion of 1 cell done.
-Closing dialog "Delete Cells" (deleteDialog).
-Main selection: ece471_lib final_and4 schematic
-\o Opening design file through session server.
-MPS request: edit design
-Invoking command (fileNewCellView).
-Main selection: ece471_lib inverter schematic
-\o Opening design file through session server.
-MPS request: edit design
-Invoking command (fileNewCellView).
-Main selection: ece471_lib final_decoder schematic
-\o Opening design file through session server.
-MPS request: edit design
-Main selection: ece471_lib final_decoder symbol
-\o Opening design file through session server.
-MPS request: edit design
-Invoking command (fileNewCellView).
-\o Opening design file through session server.
-MPS request: edit design
-Main selection: ece471_lib final_sram schematic
-\o Opening design file through session server.
-MPS request: edit design
 Main selection: ece471_lib final schematic
 \o Opening design file through session server.
 MPS request: edit design
-Main selection: ece471_lib final_sram
-\o Opening design file through session server.
-MPS request: edit design
-Main selection: ece471_lib final_sram schematic
 MPS request: update library list
+Main selection: ece471_lib nor2
 \o Opening design file through session server.
 MPS request: edit design
-Main selection: ece471_lib final schematic
-\o Opening design file through session server.
-MPS request: edit design
-Main selection: ece471_lib final_sram schematic
+Main selection: ece471_lib nor2 schematic
+MPS request: update library list
 \o Opening design file through session server.
 MPS request: edit design
 \o libManager is exiting.
