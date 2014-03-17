@@ -1,0 +1,26 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 32-BIT"
+* "format" "HSP"
+* "rundate" "15:31:12 03/17/2014 "
+* "netlist" "sim_deck "
+* "runtitle" "* 'sup' is a variable you set to adjust the supply voltage"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ bl = 296.5952m       
++ blb =   2.5000        
++ net14 =   1.0548        
++ net7 =   1.0548        
++ tmp =   0.            
++ vdd! =   2.5000        
++ wl =   0.            
++ wr =   0.            
++ wr_en =   0.            
++ xi3.1 =   2.5000        
++ xi3.net10 =  11.8641n       
++ xi3.net21 =   2.4545        
++ xi3.net6 =   2.5000        
+***   END: Saved Operating Point ***                     

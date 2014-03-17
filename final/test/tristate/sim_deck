@@ -1,0 +1,62 @@
+* 'sup' is a variable you set to adjust the supply voltage
+
+Vvdd VDD! 0 'sup'
+Vgnd GND! 0 0
+
+* Value of the power supply. 2.5V(0.25um); 1.8V(0.18um); 1.2V(0.13um); 1.0V(90nm, 65nm); 0.9V(32nm)
+.param sup=2.5
+.param del_t=10n
+
+* Include the netlist into the simulation
+* For example, 'inverter_sch.spi' (inverter schematic)
+* For example, 'inverter_lay.spi' (inverter layout)
+* You MUST get rid of the .end statement
+.include './tristate.sp'
+
+* The format for the transistor is:
+* TRANSISTOR_NAME DRAIN GATE SOURCE BULK
+* P_18_MM refers to 0.18um-PMOS device; P_18_MM=>NMOS 
+* L=length; W=width; AD=Area of Drain; AS=Area of Source; PD=Perimeter of Drain; PS=Perimeter of source; 
+* M=multiplier, # of transistors in parallel
+
+* Sources for writing to a word in ram
+VA A 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 2' 'del_t * 4')
+VEN EN 0 pulse(0 'sup' 'del_t * 3' 200p 200p 'del_t * 6')
+
+**** .measure statements, which can directly measure the values: tphl/tplh 
+**** you will need to add some more of these yourself to measure trise,tfall,power_avg
+**** This measure statements will help you AUTOMATICALLY determine the tphl (high-to-low propagation speed)
+**** and tplh 
+***.measure tran tplh TRIG v(C0) val='sup/2' fall=1
+***+                   TARG v(S3) val='sup/2' rise=1
+***
+**** static power
+***.measure static_current avg i(Vvdd) from=0 to=.5ns
+***.measure static_power param='static_current * sup'
+***
+**** triggers for 10% and 90% values
+***.measure tran start_dynamic trig at 0n targ v(S3) val = 'sup * .1' rise=1
+***.measure tran stop_dynamic trig at 0n targ v(S3) val = 'sup * .9' rise=1
+***
+**** dynamic power
+***.measure dynamic_current avg i(Vvdd) from=start_dynamic to=stop_dynamic
+***.measure dynamic_power param='dynamic_current * sup'
+
+
+
+
+* Add these files if simulating 0.25um technology 
+.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dN" NMOS 
+.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dP" PMOS 
+
+* Simulation control statements
+.options list node post
++ accurate
+
+* 10ps=minimum time step; 20ns=duration of the transient simulation
+.tran 'del_t / 100' 'del_t * 12'
+
+* Allows you to sweep a dc voltage parameter
+*.dc
+
+.end 
