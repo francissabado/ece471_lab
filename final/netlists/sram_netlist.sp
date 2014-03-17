@@ -622,21 +622,4 @@ MP0 NET6 A VDD! VDD!  TSMC25DP  L=240E-9 W=720E-9 AD=432E-15 AS=432E-15
    
 * END OF SUBCIRCUIT DEFINITION.
 .ENDS SUB2 
-   
-.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dN" NMOS 
-.lib "/nfs/guille/u1/c/cdsmgr/cdsmgr/pdk/CDK1.4/local/models/hspice/public/publicModel/tsmc25dP" PMOS 
-   
-* INCLUDE FILES
-   
-   
-   
-   
-   
-   
-* END OF NETLIST
-.TEMP    25.0000    
-.OP
-.save
-.OPTION  INGOLD=2 ARTIST=2 PSF=2
-+        PROBE=0
 .END
