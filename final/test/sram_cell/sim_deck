@@ -5,7 +5,7 @@ Vgnd GND! 0 0
 
 * Value of the power supply. 2.5V(0.25um); 1.8V(0.18um); 1.2V(0.13um); 1.0V(90nm, 65nm); 0.9V(32nm)
 .param sup=2.5
-.param del_t=10n
+.param del_t=10u
 
 * Include the netlist into the simulation
 * For example, 'inverter_sch.spi' (inverter schematic)
@@ -20,11 +20,19 @@ Vgnd GND! 0 0
 * M=multiplier, # of transistors in parallel
 
 * Sources for writing to a word in ram
-VWL WL tmp pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
-VWL2 tmp 0 pulse(0 'sup' 'del_t * 8' 200p 200p 'del_t * 3')
+VWL WL tmp pulse(0 'sup' 'del_t * 1' 200p 200p 'del_t * 1')
+VWL2 tmp a pulse(0 'sup' 'del_t * 6' 200p 200p 'del_t * 1')
+VWL3 a x pulse(0 'sup' 'del_t * 8' 200p 200p 'del_t * 1')
+VWL4 x 0 pulse(0 'sup' 'del_t * 13' 200p 200p 'del_t * 1')
 
-VEN WR_EN 0 pulse(0 'sup' 'del_t' 200p 200p 'del_t * 4')
-VWR WR 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 2')
+VWREN WR_EN tmp2 pulse(0 'sup' 'del_t * 1' 200p 200p 'del_t / 1')
+VWREN2 tmp2 tmp3 pulse(0 'sup' 'del_t * 3' 200p 200p 'del_t / 1')
+VWREN3 tmp3 tmp4 pulse(0 'sup' 'del_t * 8' 200p 200p 'del_t * 1')
+VWREN4 tmp4 0 pulse(0 'sup' 'del_t * 10' 200p 200p 'del_t * 1')
+VWR WR b pulse(0 'sup' 'del_t * 1' 200p 200p 'del_t * 1')
+VWR2 b 0 pulse(0 'sup' 'del_t * 9' 200p 200p)
+VRDEN RD_EN q pulse(0 'sup' 'del_t * 5' 200p 200p 'del_t * 2')
+VRDEN2 q 0 pulse(0 'sup' 'del_t * 12' 200p 200p 'del_t * 2')
 
 *VA0 A0 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 4')
 *VA1 A1 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 4')
@@ -80,7 +88,7 @@ VWR WR 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 2')
 + accurate
 
 * 10ps=minimum time step; 20ns=duration of the transient simulation
-.tran 'del_t / 100' 'del_t * 12'
+.tran 'del_t / 100' 'del_t * 20'
 
 * Allows you to sweep a dc voltage parameter
 *.dc

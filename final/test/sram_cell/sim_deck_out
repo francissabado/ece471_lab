@@ -10,8 +10,8 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
   Command line options: sim_deck
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   branaugj             HOSTNAME: dear119-19.engr.oregonstate.edu 
- lic: HOSTID: 8851fb6cf8de         PID:      14885 
+ lic: USER:   branaugj             HOSTNAME: dear119-24.engr.oregonstate.edu 
+ lic: HOSTID: 7446a09dad18         PID:      26539 
  lic: Using FLEXlm license file: 
  lic: 7188@license.eecs.oregonstate.edu 
  lic: Checkout 1 hspice 
@@ -19,7 +19,7 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
  lic: 5(in_use)/50(total) FLOATING license(s) on SERVER license.eecs.oregonstate
  lic:   
  Init: read install configuration file: /usr/local/apps/synopsys/current_hspice/hspice/meta.cfg
- **warning** (./sram.sp:75)'.end' can not exist in include/lib files, ignored
+ **warning** (./sram.sp:102)'.end' can not exist in include/lib files, ignored
 
  **warning**  runlvl smaller than 5, reset to 5  when accurate turned on
  scientific notation:
@@ -35,16 +35,19 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
  circuit number to circuit name directory
    number circuitname                     definition         multiplier
         0 main circuit
-        1 xi4.                            sub1               1.00 
-        2 xi3.                            sub2               1.00 
-        3 xi3.xi0.                        sub1               1.00 
+        1 xi5.                            sub2               1.00 
+        2 xi6.                            sub2               1.00 
+        3 xi4.                            sub1               1.00 
+        4 xi3.                            sub3               1.00 
+        5 xi5.xi0.                        sub1               1.00 
+        6 xi6.xi0.                        sub1               1.00 
 
 
  circuit parameter definitions
   parameter          =  value 
 
      0:sup                                                     =   2.5000       
-     0:del_t                                                   =  10.0000n      
+     0:del_t                                                   =  10.0000u      
 
 
 
@@ -230,8 +233,9 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
        lketa= -0.0232426               lvsat=     125700         
        wketa= 0.00410049               pvth0= 0.00392376         
          pk2= 0.00206176               prdsw=    15.3953         
-  **info** (sim_deck:26) DC voltage reset to initial transient source value              in source        0:ven                 new dc=  0.0000D+00
   **warning** (sim_deck:4) Both nodes of element vgnd are connected together; Line ignored.
+  **info** (sim_deck:34) DC voltage reset to initial transient source value              in source        0:vrden               new dc=  0.0000D+00
+  **warning** (sim_deck:33) pulse vwr2 period too small, reset to   2.0000040E-04
  
 
 1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
@@ -244,42 +248,114 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
  **** independent sources
 
      name         node1        node2      dc volt    ac mag    ac phase    type
-  ven  wr_en             0                    0.         0.         0.      pulse
+  vrden  rd_en             q                    0.         0.         0.      pulse
              initial value     0.     
              pulsed value.     2.5000 
-             delay time...    10.0000n
+             delay time...    50.0000u
              risetime.....   200.0000p
              falltime.....   200.0000p
-             width........    40.0000n
-             period.......   120.0000n
+             width........    20.0000u
+             period.......   200.0000u
+
+  vrden2  q                 0                    0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...   120.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    20.0000u
+             period.......   200.0000u
 
   vvdd  vdd!              0                    2.5000     0.         0.      dc   
   vwl  wl                tmp                  0.         0.         0.      pulse
              initial value     0.     
              pulsed value.     2.5000 
-             delay time...    20.0000n
+             delay time...    10.0000u
              risetime.....   200.0000p
              falltime.....   200.0000p
-             width........    10.0000n
-             period.......   120.0000n
+             width........    10.0000u
+             period.......   200.0000u
 
-  vwl2  tmp               0                    0.         0.         0.      pulse
+  vwl2  tmp               a                    0.         0.         0.      pulse
              initial value     0.     
              pulsed value.     2.5000 
-             delay time...    80.0000n
+             delay time...    60.0000u
              risetime.....   200.0000p
              falltime.....   200.0000p
-             width........    30.0000n
-             period.......   120.0000n
+             width........    10.0000u
+             period.......   200.0000u
 
-  vwr  wr                0                    0.         0.         0.      pulse
+  vwl3  a                 x                    0.         0.         0.      pulse
              initial value     0.     
              pulsed value.     2.5000 
-             delay time...    20.0000n
+             delay time...    80.0000u
              risetime.....   200.0000p
              falltime.....   200.0000p
-             width........    20.0000n
-             period.......   120.0000n
+             width........    10.0000u
+             period.......   200.0000u
+
+  vwl4  x                 0                    0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...   130.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    10.0000u
+             period.......   200.0000u
+
+  vwr  wr                b                    0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...    10.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    10.0000u
+             period.......   200.0000u
+
+  vwr2  b                 0                    0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...    90.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........   200.0000u
+             period.......   200.0004u
+
+  vwren  wr_en             tmp2                 0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...    10.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    10.0000u
+             period.......   200.0000u
+
+  vwren2  tmp2              tmp3                 0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...    30.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    10.0000u
+             period.......   200.0000u
+
+  vwren3  tmp3              tmp4                 0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...    80.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    10.0000u
+             period.......   200.0000u
+
+  vwren4  tmp4              0                    0.         0.         0.      pulse
+             initial value     0.     
+             pulsed value.     2.5000 
+             delay time...   100.0000u
+             risetime.....   200.0000p
+             falltime.....   200.0000p
+             width........    10.0000u
+             period.......   200.0000u
 
 
 
@@ -318,20 +394,48 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
   
   
                                                                           
- element name        0:mp1         0:mp0         1:mp0         1:mn0      
- drain               0:net7        0:net14       0:blb         0:blb      
- gate                0:net14       0:net7        0:bl          0:bl       
- source              0:vdd!        0:vdd!        0:vdd!        0:0        
- bulk                0:vdd!        0:vdd!        0:vdd!        0:0        
- model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dp    0:tsmc25dn 
- w eff             305.0238n     305.0238n     665.0238n     355.7470n    
- l eff             192.5619n     192.5619n     192.5619n     201.2131n    
+ element name        0:mp1         0:mp0         1:mn2         1:mn1      
+ drain               0:net7        0:net14       1:net6        1:net10    
+ gate                0:net14       0:net7        0:wr          1:net6     
+ source              0:vdd!        0:vdd!        0:0           0:0        
+ bulk                0:vdd!        0:vdd!        0:0           0:0        
+ model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dn    0:tsmc25dn 
+ w eff             305.0238n     305.0238n     355.7470n     715.7470n    
+ l eff             192.5619n     192.5619n     201.2131n     201.2131n    
  rd eff              0.            0.            0.            0.         
  rs eff              0.            0.            0.            0.         
  cdsat               0.            0.            0.            0.         
  cssat               0.            0.            0.            0.         
- capbd               1.1117f       1.1117f       1.7828f       1.2672f    
- capbs               1.1117f       1.1117f       1.7828f       1.2672f    
+ capbd               1.1117f       1.1117f       1.2672f       2.0014f    
+ capbs               1.1117f       1.1117f       1.2672f       2.0014f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        1:mn0         1:mp2         1:mp1         1:mp0      
+ drain               0:bl          0:bl          1:net21       1:net6     
+ gate                0:wr_en       1:1           1:net6        0:wr       
+ source              1:net10       1:net21       0:vdd!        0:vdd!     
+ bulk                0:0           0:vdd!        0:vdd!        0:vdd!     
+ model               0:tsmc25dn    0:tsmc25dp    0:tsmc25dp    0:tsmc25dp 
+ w eff             715.7470n       1.3850u       1.3850u     665.0238n    
+ l eff             201.2131n     192.5619n     192.5619n     192.5619n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               2.0014f       3.1249f       3.1249f       1.7828f    
+ capbs               2.0014f       3.1249f       3.1249f       1.7828f    
  temp               25.0000       25.0000       25.0000       25.0000     
  aic                                                                      
  nf                  1.0000        1.0000        1.0000        1.0000     
@@ -347,8 +451,8 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
   
                                                                           
  element name        2:mn2         2:mn1         2:mn0         2:mp2      
- drain               2:net6        2:net10       0:bl          0:bl       
- gate                0:wr          2:net6        0:wr_en       2:1        
+ drain               2:net6        2:net10       0:blb         0:blb      
+ gate                0:net027      2:net6        0:wr_en       2:1        
  source              0:0           0:0           2:net10       2:net21    
  bulk                0:0           0:0           0:0           0:vdd!     
  model               0:tsmc25dn    0:tsmc25dn    0:tsmc25dn    0:tsmc25dp 
@@ -375,8 +479,8 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
   
                                                                           
  element name        2:mp1         2:mp0         3:mp0         3:mn0      
- drain               2:net21       2:net6        2:1           2:1        
- gate                2:net6        0:wr          0:wr_en       0:wr_en    
+ drain               2:net21       2:net6        0:net027      0:net027   
+ gate                2:net6        0:net027      0:wr          0:wr       
  source              0:vdd!        0:vdd!        0:vdd!        0:0        
  bulk                0:vdd!        0:vdd!        0:vdd!        0:0        
  model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dp    0:tsmc25dn 
@@ -400,14 +504,104 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
  mulua               1.0000        1.0000        1.0000        1.0000     
  mulub               1.0000        1.0000        1.0000        1.0000     
   
+  
+                                                                          
+ element name        4:mn2         4:mn1         4:mn0         4:mp1      
+ drain               4:net20       0:val         4:net17       0:val      
+ gate                0:rd_en       0:blb         0:bl          4:net17    
+ source              0:0           4:net20       4:net20       0:vdd!     
+ bulk                0:0           0:0           0:0           0:vdd!     
+ model               0:tsmc25dn    0:tsmc25dn    0:tsmc25dn    0:tsmc25dp 
+ w eff             355.7470n     355.7470n     355.7470n     665.0238n    
+ l eff             201.2131n     201.2131n     201.2131n     192.5619n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               1.2672f       1.2672f       1.2672f       1.7828f    
+ capbs               1.2672f       1.2672f       1.2672f       1.7828f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                                                          
+ element name        4:mp0         5:mp0         5:mn0         6:mp0      
+ drain               4:net17       1:1           1:1           2:1        
+ gate                4:net17       0:wr_en       0:wr_en       0:wr_en    
+ source              0:vdd!        0:vdd!        0:0           0:vdd!     
+ bulk                0:vdd!        0:vdd!        0:0           0:vdd!     
+ model               0:tsmc25dp    0:tsmc25dp    0:tsmc25dn    0:tsmc25dp 
+ w eff             665.0238n     665.0238n     355.7470n     665.0238n    
+ l eff             192.5619n     192.5619n     201.2131n     192.5619n    
+ rd eff              0.            0.            0.            0.         
+ rs eff              0.            0.            0.            0.         
+ cdsat               0.            0.            0.            0.         
+ cssat               0.            0.            0.            0.         
+ capbd               1.7828f       1.7828f       1.2672f       1.7828f    
+ capbs               1.7828f       1.7828f       1.2672f       1.7828f    
+ temp               25.0000       25.0000       25.0000       25.0000     
+ aic                                                                      
+ nf                  1.0000        1.0000        1.0000        1.0000     
+ sa                  0.            0.            0.            0.         
+ sb                  0.            0.            0.            0.         
+ sd                  0.            0.            0.            0.         
+ saeff               0.            0.            0.            0.         
+ sbeff               0.            0.            0.            0.         
+ mulu0               1.0000        1.0000        1.0000        1.0000     
+ mulua               1.0000        1.0000        1.0000        1.0000     
+ mulub               1.0000        1.0000        1.0000        1.0000     
+  
+  
+                                
+ element name        6:mn0      
+ drain               2:1        
+ gate                0:wr_en    
+ source              0:0        
+ bulk                0:0        
+ model               0:tsmc25dn 
+ w eff             355.7470n    
+ l eff             201.2131n    
+ rd eff              0.         
+ rs eff              0.         
+ cdsat               0.         
+ cssat               0.         
+ capbd               1.2672f    
+ capbs               1.2672f    
+ temp               25.0000     
+ aic                            
+ nf                  1.0000     
+ sa                  0.         
+ sb                  0.         
+ sd                  0.         
+ saeff               0.         
+ sbeff               0.         
+ mulu0               1.0000     
+ mulua               1.0000     
+ mulub               1.0000     
+  
 
 
  **** subcircuit calls
     name        subcircuit         external nodes
 
 
-         0:xi4      sub1            0:bl          0:blb     
-         0:xi3      sub2            0:wr          0:wr_en       0:bl      
+         0:xi5      sub2            0:wr          0:wr_en       0:bl      
+         0:xi6      sub2            0:net027      0:wr_en       0:blb     
+         0:xi4      sub1            0:wr          0:net027  
+         0:xi3      sub3            0:rd_en       0:bl          0:blb     
+                               0:val     
+
+
+         1:xi0      sub1            0:wr_en       1:1       
          2:xi0      sub1            0:wr_en       2:1       
   
 1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
@@ -416,30 +610,53 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
 
   ******  element node table
                                                                                       
- 0                ven              vvdd             vwl2             vwr              
-                  mn4:b            mn2:b            mn1:s            mn1:b            
-                  mn0:s            mn0:b            xi4.mn0:s        xi4.mn0:b        
-                  xi3.mn2:s        xi3.mn2:b        xi3.mn1:s        xi3.mn1:b        
-                  xi3.mn0:b        3:mn0:s          3:mn0:b                           
- bl               mn4:d            xi4.mp0:g        xi4.mn0:g        xi3.mn0:d        
-                  xi3.mp2:d                                                           
- blb              mn2:d            xi4.mp0:d        xi4.mn0:d                         
+ 0                vrden2           vvdd             vwl4             vwr2             
+                  vwren4           mn4:b            mn2:b            mn1:s            
+                  mn1:b            mn0:s            mn0:b            xi5.mn2:s        
+                  xi5.mn2:b        xi5.mn1:s        xi5.mn1:b        xi5.mn0:b        
+                  xi6.mn2:s        xi6.mn2:b        xi6.mn1:s        xi6.mn1:b        
+                  xi6.mn0:b        xi4.mn0:s        xi4.mn0:b        xi3.mn2:s        
+                  xi3.mn2:b        xi3.mn1:b        xi3.mn0:b        5:mn0:s          
+                  5:mn0:b          6:mn0:s          6:mn0:b                           
+ a                vwl2             vwl3                                               
+ b                vwr              vwr2                                               
+ bl               mn4:d            xi5.mn0:d        xi5.mp2:d        xi3.mn0:g        
+ blb              mn2:d            xi6.mn0:d        xi6.mp2:d        xi3.mn1:g        
+ net027           xi6.mn2:g        xi6.mp0:g        xi4.mp0:d        xi4.mn0:d        
  net14            mn2:s            mn1:g            mn0:d            mp1:g            
                   mp0:d                                                               
  net7             mn4:s            mn1:d            mn0:g            mp1:d            
                   mp0:g                                                               
+ q                vrden            vrden2                                             
+ rd_en            vrden            xi3.mn2:g                                          
  tmp              vwl              vwl2                                               
+ tmp2             vwren            vwren2                                             
+ tmp3             vwren2           vwren3                                             
+ tmp4             vwren3           vwren4                                             
+ val              xi3.mn1:d        xi3.mp1:d                                          
  vdd!             vvdd             mp1:s            mp1:b            mp0:s            
-                  mp0:b            xi4.mp0:s        xi4.mp0:b        xi3.mp2:b        
-                  xi3.mp1:s        xi3.mp1:b        xi3.mp0:s        xi3.mp0:b        
-                  3:mp0:s          3:mp0:b                                            
+                  mp0:b            xi5.mp2:b        xi5.mp1:s        xi5.mp1:b        
+                  xi5.mp0:s        xi5.mp0:b        xi6.mp2:b        xi6.mp1:s        
+                  xi6.mp1:b        xi6.mp0:s        xi6.mp0:b        xi4.mp0:s        
+                  xi4.mp0:b        xi3.mp1:s        xi3.mp1:b        xi3.mp0:s        
+                  xi3.mp0:b        5:mp0:s          5:mp0:b          6:mp0:s          
+                  6:mp0:b                                                             
  wl               vwl              mn4:g            mn2:g                             
- wr               vwr              xi3.mn2:g        xi3.mp0:g                         
- wr_en            ven              xi3.mn0:g        3:mp0:g          3:mn0:g          
- xi3.1            xi3.mp2:g        3:mp0:d          3:mn0:d                           
- xi3.net10        xi3.mn1:d        xi3.mn0:s                                          
- xi3.net21        xi3.mp2:s        xi3.mp1:d                                          
- xi3.net6         xi3.mn2:d        xi3.mn1:g        xi3.mp1:g        xi3.mp0:d        
+ wr               vwr              xi5.mn2:g        xi5.mp0:g        xi4.mp0:g        
+                  xi4.mn0:g                                                           
+ wr_en            vwren            xi5.mn0:g        xi6.mn0:g        5:mp0:g          
+                  5:mn0:g          6:mp0:g          6:mn0:g                           
+ x                vwl3             vwl4                                               
+ xi5.1            xi5.mp2:g        5:mp0:d          5:mn0:d                           
+ xi5.net10        xi5.mn1:d        xi5.mn0:s                                          
+ xi5.net21        xi5.mp2:s        xi5.mp1:d                                          
+ xi5.net6         xi5.mn2:d        xi5.mn1:g        xi5.mp1:g        xi5.mp0:d        
+ xi6.1            xi6.mp2:g        6:mp0:d          6:mn0:d                           
+ xi6.net10        xi6.mn1:d        xi6.mn0:s                                          
+ xi6.net21        xi6.mp2:s        xi6.mp1:d                                          
+ xi6.net6         xi6.mn2:d        xi6.mn1:g        xi6.mp1:g        xi6.mp0:d        
+ xi3.net17        xi3.mn0:d        xi3.mp1:g        xi3.mp0:d        xi3.mp0:g        
+ xi3.net20        xi3.mn2:d        xi3.mn1:s        xi3.mn0:s                         
  **info** set option symb=1 internally to help for convergence.
  *****************************************************************
  ******  option summary
@@ -468,8 +685,12 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
         0:mn0                 0.               0.               0.               0.             449.6554m        637.9378u      
         0:mp1                 0.               0.               0.               0.            -549.0702m        238.1472u      
         0:mp0                 0.               0.               0.               0.            -549.0702m        238.1472u      
+        1:mn2                 0.               0.               0.               0.             449.6554m        637.9378u      
+        1:mn1                 0.               0.               0.               0.             440.2187m          1.2835m      
+        1:mn0                 0.               0.               0.               0.             440.2187m          1.2835m      
+        1:mp2                 0.               0.               0.               0.            -601.1614m          1.0814m      
+        1:mp1                 0.               0.               0.               0.            -601.1614m          1.0814m      
         1:mp0                 0.               0.               0.               0.            -585.2331m        519.2170u      
-        1:mn0                 0.               0.               0.               0.             449.6554m        637.9378u      
         2:mn2                 0.               0.               0.               0.             449.6554m        637.9378u      
         2:mn1                 0.               0.               0.               0.             440.2187m          1.2835m      
         2:mn0                 0.               0.               0.               0.             440.2187m          1.2835m      
@@ -478,6 +699,21 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
         2:mp0                 0.               0.               0.               0.            -585.2331m        519.2170u      
         3:mp0                 0.               0.               0.               0.            -585.2331m        519.2170u      
         3:mn0                 0.               0.               0.               0.             449.6554m        637.9378u      
+        4:mn2                 0.               0.               0.               0.             449.6554m        637.9378u      
+        4:mn1                 0.               0.               0.               0.             449.6554m        637.9378u      
+        4:mn0                 0.               0.               0.               0.             449.6554m        637.9378u      
+        4:mp1                 0.               0.               0.               0.            -585.2331m        519.2170u      
+        4:mp0                 0.               0.               0.               0.            -585.2331m        519.2170u      
+        5:mp0                 0.               0.               0.               0.            -585.2331m        519.2170u      
+        5:mn0                 0.               0.               0.               0.             449.6554m        637.9378u      
+        6:mp0                 0.               0.               0.               0.            -585.2331m        519.2170u      
+        6:mn0                 0.               0.               0.               0.             449.6554m        637.9378u      
+ **warning** Due to a floating point overflow problem,
+             the damped pseudo-tran method was used.
+
+  *** initial damped pseudo transient completed. ***
+  *** final try started ***
+  *** final try succeeded *** 
 1****** HSPICE -- F-2011.09-SP2 32-BIT (Feb 27 2012) linux ******               
  ******  
  * 'sup' is a variable you set to adjust the supply voltage
@@ -486,11 +722,16 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
  ***** operating point status is voltage   simulation time is     0.     
     node    =voltage      node    =voltage      node    =voltage
 
- +0:bl      = 296.5952m 0:blb     =   2.5000  0:net14   =   1.0548 
- +0:net7    =   1.0548  0:tmp     =   0.      0:vdd!    =   2.5000 
+ +0:a       =   0.      0:b       =   0.      0:bl      = 296.5952m
+ +0:blb     =   2.1161  0:net027  =   2.5000  0:net14   =   1.0548 
+ +0:net7    =   1.0548  0:q       =   0.      0:rd_en   =   0.     
+ +0:tmp     =   0.      0:tmp2    =   0.      0:tmp3    =   0.     
+ +0:tmp4    =   0.      0:val     =   1.6684  0:vdd!    =   2.5000 
  +0:wl      =   0.      0:wr      =   0.      0:wr_en   =   0.     
- +2:1       =   2.5000  2:net10   =  11.8641n 2:net21   =   2.4545 
- +2:net6    =   2.5000 
+ +0:x       =   0.      1:1       =   2.5000  1:net10   =  11.8641n
+ +1:net21   =   2.4545  1:net6    =   2.5000  2:1       =   2.5000 
+ +2:net10   =  60.8084m 2:net21   =   2.5000  2:net6    =  20.7178n
+ +4:net17   =   2.4909  4:net20   =   1.6677 
 
 
           ***** job concluded
@@ -520,12 +761,12 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
 
 
   ******  Circuit Statistics  ******
-  # nodes       =      14 # elements   =      21
+  # nodes       =      30 # elements   =      42
   # resistors   =       0 # capacitors =       0 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
-  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       5
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =      13
   # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
-  # jfets       =       0 # mosfets    =      16 # U elements  =       0
+  # jfets       =       0 # mosfets    =      29 # U elements  =       0
   # T elements  =       0 # W elements =       0 # B elements  =       0
   # S elements  =       0 # P elements =       0 # va device   =       0
   # vector_srcs =       0
@@ -534,19 +775,19 @@ Using: /usr/local/apps/synopsys/current_hspice/hspice/linux/hspice sim_deck
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.00           1          24
-  transient          0.03        1201         905         341 rev=        46
+  op point           0.00           1          75
+  transient          0.09        2001        2397         831 rev=        78
   readin             0.01
-  errchk             0.00
+  errchk             0.01
   setup              0.00
   output             0.00
 
 
-           peak memory used         95.85 megabytes
-           total cpu time            0.04 seconds
-           total elapsed time        0.45 seconds
-           job started at     15:31:12 03/17/2014
-           job ended   at     15:31:13 03/17/2014
+           peak memory used         95.98 megabytes
+           total cpu time            0.11 seconds
+           total elapsed time        0.49 seconds
+           job started at     14:44:52 03/19/2014
+           job ended   at     14:44:53 03/19/2014
 
 
  lic: Release hspice token(s) 
