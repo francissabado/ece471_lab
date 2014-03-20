@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 32-BIT"
 * "format" "HSP"
-* "rundate" "18:02:19 03/19/2014 "
+* "rundate" "19:17:55 03/19/2014 "
 * "netlist" "sim_deck "
 * "runtitle" "* 'sup' is a variable you set to adjust the supply voltage"
 * time =    0.            

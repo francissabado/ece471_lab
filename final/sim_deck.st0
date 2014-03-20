@@ -3,14 +3,14 @@
  lic:
  lic: FLEXlm: v10.8
  lic: USER:   branaugj             HOSTNAME: dear119-24.engr.oregonstate.edu
- lic: HOSTID: 7446a09dad18         PID:      936
+ lic: HOSTID: 7446a09dad18         PID:      2893
  lic: Using FLEXlm license file:
  lic: 7188@license.eecs.oregonstate.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 11-aug-2014/2013.03
  lic: 3(in_use)/50(total) FLOATING license(s) on SERVER license.eecs.oregonstate
  lic:
- init: begin read circuit files,  cpu clock=  6.00E-02
+ init: begin read circuit files,  cpu clock=  7.00E-02
        option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
                          spice/parts/ad
        option search   = /usr/local/apps/synopsys/hspice_vF-2011.09-SP2/h
@@ -44,27 +44,27 @@
        option node
        option post
        option accura
- init: end read circuit files,  cpu clock=  6.00E-02 memory=    441 kb
- init: begin check errors,  cpu clock=  6.00E-02
- init: end check errors,  cpu clock=  2.60E-01 memory=  13207 kb
- init: begin setup matrix, pivot=     0 cpu clock=  2.60E-01
-       establish matrix -- done,  cpu clock=  2.60E-01 memory=  13796 kb
-       re-order matrix -- done,  cpu clock=  2.60E-01 memory=  13810 kb
- init: end setup matrix,  cpu clock=  2.60E-01 memory=  15944 kb
- dcop: begin dcop,  cpu clock=  2.80E-01
- dcop: end dcop,  cpu clock=  4.00E-01 memory=  15944 kb  tot_iter=      48
- output: sim_deck.tr0
- sweep: tran tran0    begin, stop_t=  2.00E-07 #sweeps=2001 cpu clock=  4.00E-01
- tran: time= 2.0000E-08 tot_iter=      14 conv_iter=       7 cpu clock= 4.20E-01
- tran: time= 4.0000E-08 tot_iter=     407 conv_iter=     149 cpu clock= 1.19E+00
- tran: time= 6.0000E-08 tot_iter=     819 conv_iter=     300 cpu clock= 1.94E+00
- tran: time= 8.0000E-08 tot_iter=    1176 conv_iter=     438 cpu clock= 2.47E+00
- tran: time= 1.0000E-07 tot_iter=    1418 conv_iter=     528 cpu clock= 2.77E+00
- tran: time= 1.2020E-07 tot_iter=    1832 conv_iter=     683 cpu clock= 3.45E+00
- tran: time= 1.4087E-07 tot_iter=    2087 conv_iter=     773 cpu clock= 3.82E+00
- tran: time= 1.6363E-07 tot_iter=    2096 conv_iter=     777 cpu clock= 3.83E+00
- tran: time= 1.8893E-07 tot_iter=    2103 conv_iter=     780 cpu clock= 3.83E+00
- tran: time= 2.0000E-07 tot_iter=    2107 conv_iter=     782 cpu clock= 3.84E+00
- sweep: tran tran0    end,  cpu clock=  3.84E+00 memory=  15954 kb
+ init: end read circuit files,  cpu clock=  7.00E-02 memory=    441 kb
+ init: begin check errors,  cpu clock=  7.00E-02
+ init: end check errors,  cpu clock=  2.70E-01 memory=  13207 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  2.70E-01
+       establish matrix -- done,  cpu clock=  2.70E-01 memory=  13796 kb
+       re-order matrix -- done,  cpu clock=  2.80E-01 memory=  13810 kb
+ init: end setup matrix,  cpu clock=  2.80E-01 memory=  15944 kb
+ dcop: begin dcop,  cpu clock=  2.90E-01
+ dcop: end dcop,  cpu clock=  4.10E-01 memory=  15944 kb  tot_iter=      48
+ output: sim_deck.mt0
+ sweep: tran tran0    begin, stop_t=  2.00E-07 #sweeps=2001 cpu clock=  4.10E-01
+ tran: time= 2.0000E-08 tot_iter=      14 conv_iter=       7 cpu clock= 4.30E-01
+ tran: time= 4.0000E-08 tot_iter=     407 conv_iter=     149 cpu clock= 1.17E+00
+ tran: time= 6.0000E-08 tot_iter=     819 conv_iter=     300 cpu clock= 1.90E+00
+ tran: time= 8.0000E-08 tot_iter=    1176 conv_iter=     438 cpu clock= 2.40E+00
+ tran: time= 1.0000E-07 tot_iter=    1418 conv_iter=     528 cpu clock= 2.70E+00
+ tran: time= 1.2020E-07 tot_iter=    1832 conv_iter=     683 cpu clock= 3.36E+00
+ tran: time= 1.4087E-07 tot_iter=    2087 conv_iter=     773 cpu clock= 3.71E+00
+ tran: time= 1.6363E-07 tot_iter=    2096 conv_iter=     777 cpu clock= 3.71E+00
+ tran: time= 1.8893E-07 tot_iter=    2103 conv_iter=     780 cpu clock= 3.72E+00
+ tran: time= 2.0000E-07 tot_iter=    2107 conv_iter=     782 cpu clock= 3.72E+00
+ sweep: tran tran0    end,  cpu clock=  3.72E+00 memory=  15954 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

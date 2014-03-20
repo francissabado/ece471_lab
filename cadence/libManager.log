@@ -23,3 +23,4 @@ MPS request: edit design
 \o Opening design file through session server.
 MPS request: edit design
 Invoking command (fileNewCellView).
+\o libManager is exiting.

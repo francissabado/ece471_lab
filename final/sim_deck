@@ -19,7 +19,8 @@ Vgnd GND! 0 0
 * L=length; W=width; AD=Area of Drain; AS=Area of Source; PD=Perimeter of Drain; PS=Perimeter of source; 
 * M=multiplier, # of transistors in parallel
 
-* Sources for writing to a word in ram
+*** Sources for writing to a word in ram
+* word line select
 VA01 A0 a pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
 VA02 a 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
 VA11 A1 b pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
@@ -29,6 +30,7 @@ VA22 c 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
 VA31 A3 d pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
 VA32 d 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
 
+* bit write values
 V0 WR0 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 V1 WR1 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 V2 WR2 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
@@ -46,61 +48,41 @@ V13 WR13 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 V14 WR14 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 V15 WR15 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 
+* write enable pulses
 VWREN1 WR_EN e pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 VWREN2 e 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 1')
 
+* precharge pulses
 VPRE1 PRE m pulse(0 'sup' 'del_t * 6' 200p 200p 'del_t * .5')
 VPRE2 m 0 pulse(0 'sup' 'del_t * 10' 200p 200p 'del_t * .5')
 
+*read enable pulses
 VRDEN1 RD_EN f pulse(0 'sup' 'del_t * 8' 200p 200p 'del_t * 1')
 VRDEN2 f 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
 
-*VA0 A0 a pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
-*VA1 A1 b pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
-*VA2 A2 c pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
-*VA3 A3 d pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
-*
-*VWR0 WR0 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
-*
-*VWREN WR_EN f pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
-*
-*VPRE PRE g pulse(0 'sup' 'del_t * 5' 200p 200p 'del_t / 2')
-*
-*VRDEN RD_EN h pulse(0 'sup' 'del_t * 7' 200p 200p 'del_t * 1')
-*
-*
-*
-*VA0a a 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
-*VA1a b 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
-*VA2a c 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
-*VA3a d 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
-*
-**VWR0a e 0 pulse(0 'sup' 'del_t * 12' 200p 200p 'del_t * 1')
-*
-*VWRENa f 0 pulse(0 'sup' 'del_t * 12' 200p 200p 'del_t * 1')
-*
-*VPREa g 0 pulse(0 'sup' 'del_t * 15' 200p 200p 'del_t / 2')
-*
-*VRDENa h 0 pulse(0 'sup' 'del_t * 17' 200p 200p 'del_t * 1')
 
-**** .measure statements, which can directly measure the values: tphl/tplh 
-**** you will need to add some more of these yourself to measure trise,tfall,power_avg
-**** This measure statements will help you AUTOMATICALLY determine the tphl (high-to-low propagation speed)
-**** and tplh 
-***.measure tran tplh TRIG v(C0) val='sup/2' fall=1
-***+                   TARG v(S3) val='sup/2' rise=1
-***
-**** static power
-***.measure static_current avg i(Vvdd) from=0 to=.5ns
-***.measure static_power param='static_current * sup'
-***
-**** triggers for 10% and 90% values
-***.measure tran start_dynamic trig at 0n targ v(S3) val = 'sup * .1' rise=1
-***.measure tran stop_dynamic trig at 0n targ v(S3) val = 'sup * .9' rise=1
-***
-**** dynamic power
-***.measure dynamic_current avg i(Vvdd) from=start_dynamic to=stop_dynamic
-***.measure dynamic_power param='dynamic_current * sup'
+*** measure statements
+* delay for writing (net340=BLb)
+.measure tran delay_wr TRIG v(WR0) val='sup/2' rise=1
++                   TARG v(net340) val='sup/2' fall=1
+
+.measure tran delay_rd TRIG v(A0) val='sup/2' rise=1
++		    TARG v(RD0) val='sup/2' fall=1
+
+.measure total_delay param='delay_wr + delay_rd'
+.measure max_freq param='1/total_delay'
+
+* leakage power
+.measure static_current avg i(Vvdd) from=0 to='del_t'
+.measure static_power param='static_current * sup * -1'
+
+* triggers for 10% and 90% values
+.measure tran start_dynamic trig at 0n targ v(WR0) val = 'sup * .1' rise=1
+.measure tran stop_dynamic trig at 0n targ v(WR0) val = 'sup * .9' rise=1
+
+* active power
+.measure dynamic_current avg i(Vvdd) from=start_dynamic to=stop_dynamic
+.measure dynamic_power param='dynamic_current * sup * -1'
 
 
 
