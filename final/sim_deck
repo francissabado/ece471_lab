@@ -20,30 +20,68 @@ Vgnd GND! 0 0
 * M=multiplier, # of transistors in parallel
 
 * Sources for writing to a word in ram
-VA0 A0 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 4')
-VA1 A1 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 4')
-VA2 A2 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 4')
-VA3 A3 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 4')
+VA01 A0 a pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
+VA02 a 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
+VA11 A1 b pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
+VA12 b 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
+VA21 A2 c pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
+VA22 c 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
+VA31 A3 d pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 3')
+VA32 d 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
 
-V0 WR0 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 7')
-V1 WR1 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 7')
-V2 WR2 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V3 WR3 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V4 WR4 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V5 WR5 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V6 WR6 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V7 WR7 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V8 WR8 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V9 WR9 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V10 WR10 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V11 WR11 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V12 WR12 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V13 WR13 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V14 WR14 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
-V15 WR15 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 3')
+V0 WR0 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V1 WR1 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V2 WR2 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V3 WR3 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V4 WR4 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V5 WR5 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V6 WR6 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V7 WR7 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V8 WR8 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V9 WR9 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V10 WR10 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V11 WR11 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V12 WR12 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V13 WR13 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V14 WR14 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+V15 WR15 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
 
-V_EN WR_EN 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 5')
+VWREN1 WR_EN e pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+VWREN2 e 0 pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 1')
 
+VPRE1 PRE m pulse(0 'sup' 'del_t * 6' 200p 200p 'del_t * .5')
+VPRE2 m 0 pulse(0 'sup' 'del_t * 10' 200p 200p 'del_t * .5')
+
+VRDEN1 RD_EN f pulse(0 'sup' 'del_t * 8' 200p 200p 'del_t * 1')
+VRDEN2 f 0 pulse(0 'sup' 'del_t * 11' 200p 200p 'del_t * 1')
+
+*VA0 A0 a pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
+*VA1 A1 b pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
+*VA2 A2 c pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
+*VA3 A3 d pulse(0 'sup' 'del_t * 4' 200p 200p 'del_t * 2')
+*
+*VWR0 WR0 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+*
+*VWREN WR_EN f pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 1')
+*
+*VPRE PRE g pulse(0 'sup' 'del_t * 5' 200p 200p 'del_t / 2')
+*
+*VRDEN RD_EN h pulse(0 'sup' 'del_t * 7' 200p 200p 'del_t * 1')
+*
+*
+*
+*VA0a a 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
+*VA1a b 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
+*VA2a c 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
+*VA3a d 0 pulse(0 'sup' 'del_t * 14' 200p 200p 'del_t * 2')
+*
+**VWR0a e 0 pulse(0 'sup' 'del_t * 12' 200p 200p 'del_t * 1')
+*
+*VWRENa f 0 pulse(0 'sup' 'del_t * 12' 200p 200p 'del_t * 1')
+*
+*VPREa g 0 pulse(0 'sup' 'del_t * 15' 200p 200p 'del_t / 2')
+*
+*VRDENa h 0 pulse(0 'sup' 'del_t * 17' 200p 200p 'del_t * 1')
 
 **** .measure statements, which can directly measure the values: tphl/tplh 
 **** you will need to add some more of these yourself to measure trise,tfall,power_avg
@@ -76,7 +114,7 @@ V_EN WR_EN 0 pulse(0 'sup' 'del_t * 2' 200p 200p 'del_t * 5')
 + accurate
 
 * 10ps=minimum time step; 20ns=duration of the transient simulation
-.tran 'del_t / 100' 'del_t * 12'
+.tran 'del_t / 100' 'del_t * 20'
 
 * Allows you to sweep a dc voltage parameter
 *.dc

@@ -6,11 +6,11 @@
 LockStakeVersion               1.1
 LoginName                      branaugj
 HostName                       dear119-24.engr.oregonstate.edu
-ProcessIdentifier              20682
-ProcessCreationTime_UTC        1395256981
-ProcessCreationTime_Readable   Wed Mar 19 12:23:01 2014 PDT
+ProcessIdentifier              30065
+ProcessCreationTime_UTC        1395272070
+ProcessCreationTime_Readable   Wed Mar 19 16:34:30 2014 PDT
 AppIdentifier                  /usr/local/apps/cadence/IC5141/tools/dfII/bin/icfb.exe
 OSType                         lnx86
-ReasonForPlacingEditLock       XXopen upgrade lock
+ReasonForPlacingEditLock       XXsave write lock
 FilePathUsedToEditLock         /nfs/stak/students/b/branaugj/ece471_lab/cadence/ece471_lib/final/schematic/sch.cdb
-TimeEditLocked                 Wed Mar 19 14:47:46 2014 PDT
+TimeEditLocked                 Wed Mar 19 18:09:35 2014 PDT
